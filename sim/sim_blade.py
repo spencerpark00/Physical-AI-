@@ -128,14 +128,25 @@ _a = math.radians(8); _d2 = D - 0.01
 RETAKE    = ik([STAND_X + _d2*math.sin(_a), CY + _d2*math.cos(_a), BLADE_MID])
 BACKOFF   = ik([STAND_X, CY + D + 0.10, BLADE_MID])  # 살짝 물러남
 
+# 경유 자세(WAY) - 자세 사이를 직선 보간하면 팔이 고정구·블레이드를 통과하므로
+#   블레이드보다 위쪽으로 크게 돌아가는 중간점을 넣어 우회시킨다.
+LIFT = 0.30
+WAY_LP = ik([STAND_X - D*0.7, CY - D*0.7, BLADE_MID + LIFT])   # 리딩엣지 <-> 압력면
+WAY_PS = ik([STAND_X - D*0.5, CY,          BLADE_MID + LIFT])  # 압력면  <-> 흡입면
+WAY_SH = ik([STAND_X - D*0.7, CY + D*0.7,  BLADE_MID + LIFT])  # 흡입면  <-> 복귀
+
 # 키프레임: 초 -> 관절각 (시나리오 §2 타임라인)
 KEY = [
     (0.0,  HOME),      (2.0,  HOME),       # A 대기
+    (3.5,  WAY_LP),                        #   경유(위로 우회)
     (5.0,  LEADING),   (7.0,  LEADING),    # B 접근 / C 촬영1
+    (8.5,  WAY_LP),                        #   경유
     (10.0, PRESSURE),  (12.0, PRESSURE),   # D 이동 / E 촬영2
+    (13.5, WAY_PS),                        #   경유 (이 구간에서 통과 발생했었음)
     (15.0, SUCTION),   (17.0, SUCTION),    # F 이동 / G 촬영3
     (18.2, BACKOFF),                       # H 판단② - 물러남
     (20.0, RETAKE),    (21.0, RETAKE),     #   보정 재접근 + 재촬영
+    (22.0, WAY_SH),                        #   경유
     (23.0, HOME),                          # I 복귀 (A와 동일 = 루프)
 ]
 # 촬영 구간(정지 = 촬영). 각 구간 시작 0.2초간 플래시
