@@ -23,6 +23,9 @@ cmd = [ffmpeg, "-y",
        "-framerate", str(FPS),
        "-i", os.path.join(FRAMES, "frame_%04d.png"),
        "-c:v", "libx264",
+       "-vf", "scale=1280:-2",
+       "-profile:v", "baseline",  # Constrained Baseline = 재생 호환성 최대
+       "-level", "3.1",
        "-pix_fmt", "yuv420p",     # 브라우저 호환 필수
        "-crf", "23",
        "-movflags", "+faststart", # 웹 스트리밍 시작 빠르게
