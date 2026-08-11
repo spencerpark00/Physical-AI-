@@ -14,7 +14,6 @@ KT AIVLE School 빅프로젝트 (수도권 01반 01조) · 고객: 대한항공 
 | **처음이라면 여기부터** | [sim/README.md](sim/README.md) — 무엇을 보여주는 시뮬레이션인지, 영상에서 무슨 일이 일어나는지 |
 | 시연 영상 (43.8초) | [sim/demo_physical_ai.mp4](sim/demo_physical_ai.mp4) |
 | 코드 | [sim/sim_physical_ai.py](sim/sim_physical_ai.py) |
-| 발표용 시연 설명 | [docs/로봇시뮬레이션_시연설명서.md](docs/로봇시뮬레이션_시연설명서.md) |
 | 3D 자산 출처·라이선스 | [sim/ASSETS_LICENSE.md](sim/ASSETS_LICENSE.md) |
 
 ---

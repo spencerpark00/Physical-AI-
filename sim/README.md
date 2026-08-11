@@ -301,12 +301,10 @@ PyBullet은 **움직이지 않는 물체(질량 0)끼리는 접촉을 계산하�
 | **`sim_physical_ai.py`** | **현재 대표본** — 인지·판단·행동·결과확인·재계획 전체 루프 |
 | `demo_physical_ai.mp4` | 시연 영상 (43.8초) |
 | `make_mp4.py` | 프레임 → mp4 인코딩 |
-| `sim_blade_moby.py` | 이전 버전 — 대차 이동 + 바닥 4장 순차 검사 (판단 루프 없음) |
-| `sim_blade_rack.py` | 이전 버전 — 랙에 세워둔 6장 검사 |
-| `sim_blade.py` | 이전 버전 — 1장 정밀 검사 |
 | `ASSETS_LICENSE.md` | 3D 자산 출처·라이선스 (발표 출처 슬라이드용) |
 
-> 이전 버전들은 참고용으로 남겨뒀습니다. 시나리오가 바뀌면 되살릴 수 있습니다.
+> 이전 버전(`sim_blade.py` / `sim_blade_rack.py` / `sim_blade_moby.py`)은 정리 과정에서 제거했습니다.
+> 필요하면 커밋 `712e25a`에서 되살릴 수 있습니다.
 
 ---
 
